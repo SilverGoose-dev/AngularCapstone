@@ -1,43 +1,40 @@
-<h2>Tickets</h2>
-<!-- <ngb-accordion *ngFor="let t of TicketList"  #acc="ngbAccordion" activeIds="ngb-panel-0">
-
-    <ngb-panel [title]="t.ticket_id>
-
-        <ng-template ngbPanelContent>
-
-            <ng-container >
-
-                <app-ticket-detail [ticket]="t" (delete)="deleteOne($event)" (update)="updateOne($event)"></app-ticket-detail>
+<div class="title">
+    <h2>Tickets</h2>
+</div>
 
 
-
-            </ng-container>
-
-        </ng-template>
-
-    </ngb-panel>
-
-</ngb-accordion> -->
-<div>
-    <ng-container *ngFor="let ticket of TicketList">
+<ng-container *ngFor="let ticket of TicketList">
         <app-ticket-detail [ticket]="ticket"
              (delete)="deleteOne($event)" 
              (update)="updateOne($event)"></app-ticket-detail>
-    </ng-container>
-</div>
-<br><br>
+</ng-container>
+
+<div class="ticket-container">
+    <div class="wrapper">
+
 <button (click)="turnOnAddMode()">Add Ticket</button>
 <div *ngIf="addMode">
     <!--Ticket:<input type="text" [(ngModel)]="newTicket.ticket_id"> <br>  -->
-    Requester:<input type="text" [(ngModel)]="newTicket.requester"> <br>
-    Details:<input type="text" [(ngModel)]="newTicket.problemdetails"> <br>
-    Phone:<input type="text" [(ngModel)]="newTicket.phone"> <br>
-    Email:<input type="text" [(ngModel)]="newTicket.email"> <br>
+    <div class="rows">
+        <b>Requester:</b><input type="text" [(ngModel)]="newTicket.requester">
+    </div>
+
+    <div class="rows">
+        <b>Details:</b><input type="text" [(ngModel)]="newTicket.problemdetails">
+    </div>
+
+    <div class="rows">
+        <b>Phone:</b><input type="text" [(ngModel)]="newTicket.phone">
+    </div>
+
+    <div class="rows">
+        <b>Email:</b><input type="text" [(ngModel)]="newTicket.email">
+    </div>
     <!-- Resolved:<input type="checkbox" [(ngModel)]="newTicket.resolved"> <br>
     Resolved By:<input type="text" [(ngModel)]="newTicket.resolvedby"> <br>
     Favorite:<input type="checkbox" [(ngModel)]="newTicket.isfavorite"> <br> -->
  <button (click)="addTicket()">Submit</button>
  <button (click)="turnOffAddMode()">Cancel</button>
-</div>
+</div></div>
 
 

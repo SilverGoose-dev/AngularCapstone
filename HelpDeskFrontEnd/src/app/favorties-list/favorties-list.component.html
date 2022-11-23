@@ -1,32 +1,37 @@
-<h2>Favorites</h2>
+<div class="title">
+    <h2>Favorites</h2>
+</div>
 
-<div class="container">
-    <div class="wrapper">
-        <div *ngFor="let ticket of FavList">
+
+<div *ngFor="let ticket of FavList">
+            <div class="wrapper">
             
-            <div>
-                <b>Ticket#: :  </b>{{ticket.ticket_id}}<br>
+            <div class="rows">
+                <b>Ticket #:  </b>{{ticket.ticket_id}}<br>
             </div>
-            <div>
+
+            <div class="rows">
                 <b>Requester:  </b>{{ticket.requester}} <br>
             </div>
-            <div>
+            <div class="rows">
                 <b>Phone:  </b>{{ticket.phone}}<br>
             </div>
-            <div>
+            <div class="rows">
                 <b>Email:  </b>{{ticket.email}}<br>
             </div>
-            <div>
+            <div class="rows">
                 <b>Resolved:  </b>{{ticket.resolved}}<br>
             </div>
-            <div>
-                <b>resolvedby  </b>{{ticket.resolvedby}}<br>
+            <div class="rows">
+                <b>Resolved by:  </b>{{ticket.resolvedby}}<br>
             </div>
-            <div>
+            <div class="rows">
                 <b>Favorite:  </b>{{ticket.isfavorite}}<br>
             </div>
-            <button>Remove From Favorites</button>
-    </div> <br><br>
+            <button (click)="removeFav(ticket)">Remove From Favorites</button>
+        </div>
+        </div>
+
 <!-- <div>
     <ng-container *ngFor="let fav of FavList">
         <app-favorties-detail [favorite]="fav" 

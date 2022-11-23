@@ -1,91 +1,91 @@
-<div class="container">
 <div class="wrapper" *ngIf="!editMode">
     
-            <div>
+            <div class="rows">
                 <b>Ticket #:</b>  {{ ticket.ticket_id }}
             </div>
 
-            <div>
+            <div class="rows">
                 <b>Requester:</b>  {{ ticket.requester }}
             </div>
-            <div>
+            
             <ng-container *ngIf="showMore">
-                
-                    <b>Details:</b> {{ ticket.problemdetails}}
-                
+                <div class="rows">
+                    <b>Details:</b> {{ ticket.problemdetails}}                
+                </div>
             </ng-container>
-            </div>
-            <div>
+            
             <ng-container *ngIf="showMore">
-                
-                    <b>Phone:</b>  {{ ticket.phone}}
-                
-            </ng-container>
-            </div>
-            <ng-container *ngIf="showMore">
-            <div>
-                <b>Email:</b> {{ ticket.email}}
-            </div>
+                <div class="rows">
+                    <b>Phone:</b>  {{ ticket.phone}}          
+                </div>
             </ng-container>
 
-            <div>
             <ng-container *ngIf="showMore">
-                <b>Resolved:</b>  {{ ticket.resolved}}
+                <div class="rows">
+                    <b>Email:</b> {{ ticket.email}}
+                </div>
             </ng-container>
-            </div>
 
-            <div>
             <ng-container *ngIf="showMore">
-                <b>Resolved By:</b> {{ ticket.resolvedby}}
+                <div class="rows">
+                    <b>Resolved:</b>  {{ ticket.resolved}}
+                </div>
             </ng-container>
-            </div>
-            <div>
+
             <ng-container *ngIf="showMore">
-                <b>Notes:</b>  {{ ticket.resnotes}}
+                <div class="rows">
+                    <b>Resolved By:</b> {{ ticket.resolvedby}}
+                </div>
             </ng-container>
-            </div>
-            <div>
+
+            <ng-container *ngIf="showMore">
+                <div class="rows">
+                    <b>Notes:</b>  {{ ticket.resnotes}}
+                </div>
+            </ng-container>
+
+            <!-- <div>
             <ng-container *ngIf="showMore">
                 <Button (click)="addToFavorites()">Add To Favorites</Button>
             </ng-container>
-            </div>
+            </div> -->
     
     <ng-container *ngIf="showMore"><button (click)="turnOnEdit()">Edit</button></ng-container>
     <ng-container *ngIf="showMore"><button (click)="deleteMe()">Delete</button></ng-container>
     <ng-container *ngIf="!showMore"><button (click)="details()">Details</button></ng-container>
     <ng-container *ngIf="showMore"><button (click)="showLess()">Show Less</button></ng-container>
+
+    <Button (click)="addFav(this.ticket)">Add To Favorites</Button>
 </div>
-<div *ngIf="editMode">
-    <tbody>
-        <div>
-            Ticket <input type="text" [(ngModel)]="editObj.ticket_id"> 
+
+<div class="wrapper" *ngIf="editMode">
+      <!--   <div class="rows">
+            <b>Ticket:</b> <input type="text" [(ngModel)]="editObj.ticket_id"> 
+        </div> -->
+        <div class="rows">
+            <b>Requester:</b> <input type="text" [(ngModel)]="editObj.requester">
         </div>
-        <div>
-            Requester <input type="text" [(ngModel)]="editObj.requester">
+        <div class="rows">
+            <b>Details:</b> <input type="text" [(ngModel)]="editObj.problemdetails"> 
         </div>
-        <div>
-            Details <input type="text" [(ngModel)]="editObj.problemdetails"> 
+        <div class="rows">
+            <b>Phone:</b> <input type="text" [(ngModel)]="editObj.phone">
         </div>
-        <div>
-            Phone <input type="text" [(ngModel)]="editObj.phone">
+        <div class="rows">
+            <b>Email:</b> <input type="text" [(ngModel)]="editObj.email"> 
         </div>
-        <div>
-            Email <input type="text" [(ngModel)]="editObj.email"> 
+        <div class="rows">
+            <b>Resolved:</b> <input type="checkbox" [(ngModel)]="editObj.resolved"> 
         </div>
-        <div>
-            Resolved: <input type="checkbox" [(ngModel)]="editObj.resolved"> 
+        <div class="rows">
+            <b>Resolved By:</b> <input type="text" [(ngModel)]="editObj.resolvedby"> 
         </div>
-        <div>
-            Resolved By: <input type="text" [(ngModel)]="editObj.resolvedby"> 
+        <div class="rows">
+            <b>Notes:</b> <input type="text" [(ngModel)]="editObj.resnotes">
         </div>
-        <div>
-            Notes: <input type="text" [(ngModel)]="editObj.resnotes">
+        <div class="rows">
+            <b>Favorite</b> <input type="checkbox" [(ngModel)]="editObj.isfavorite"> 
         </div>
-        <div>
-            Favorite <input type="checkbox" [(ngModel)]="editObj.isfavorite"> 
-        </div>
-    </tbody>
     <button (click)="saveChanges()">Save</button>
     <button (click)="cancel()">Cancel</button>
-</div>
 </div>

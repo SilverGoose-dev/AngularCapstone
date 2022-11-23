@@ -1,13 +1,12 @@
-.wrapper {
+/* .wrapper {
     grid: flex;
     grid-template-columns: auto;
     grid-column-start: span 2;
     margin: 30px;
 
 }
-.wrapper>div{
+.wrapper div {
     border: 2px solid black;
-    margin: 0 auto;
     flex: 0 0 50px
 }
  .container {
@@ -15,4 +14,31 @@
     margin: 0;
     padding-left: 0;
     
+ } */
+
+ button {
+    border: 0;
+    border-radius: 25px;
+    padding: 0px 15px;
+    margin: 8px 10px 0 0;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
  }
+
+ .wrapper {
+    width: 25%;
+    background-color: rgb(206, 224, 252);
+    padding: 10px;
+    border: 1px solid lightsteelgrey;
+    border-radius: 10px;
+    margin: 30px;
+}
+
+div .rows {
+    border-bottom: 1px solid black;
+    padding: 4px;
+    display: block;   
+}
+
+input { margin-left: 5px;
+}

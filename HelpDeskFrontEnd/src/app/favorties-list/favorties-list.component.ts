@@ -21,6 +21,11 @@ export class FavortiesListComponent implements OnInit {
     this.TicketSrv.getfavorites((result:Ticket[])=>{this.FavList= result})
   }
 
+  removeFav(ticket: Ticket) {
+    ticket.isfavorite = false;
+    this.TicketSrv.update(()=>{this.refresh()},ticket)
+  }
+
   /*
   deleteOne(id: number){
   this.favSrv.delete( ()=>{this.refresh()},id)

@@ -1,18 +1,13 @@
-.wrapper {
-    grid: flex;
-    grid-template-columns: auto;
-    grid-column-start: span 2;
-    margin: 30px;
-
-}
-.wrapper>div{
-    border: 2px solid black;
-    margin: 0 auto;
-    flex: 0 0 50px
-}
- .container {
-    width: 50%;
-    margin: 0;
-    padding-left: 0;
-    
+ button {
+    border: .5;
+    border-radius: 25px;
+    padding: 0px 15px;
+    margin: 8px 10px 0 0;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
  }
+
+ .wrapper {
+    width: 25%;
+    margin: 30px;
+}

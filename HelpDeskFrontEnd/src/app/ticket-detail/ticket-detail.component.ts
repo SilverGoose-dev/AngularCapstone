@@ -1,13 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Favorites } from '../favorites';
 import { Ticket } from '../ticket';
+import { TicketService } from '../ticket.service';
 @Component({
   selector: 'app-ticket-detail',
   templateUrl: './ticket-detail.component.html',
   styleUrls: ['./ticket-detail.component.css']
 })
 export class TicketDetailComponent implements OnInit {
-  constructor() { }
+  constructor(private TicketSrv:TicketService) { }
   @Input() ticket: Ticket = {
     ticket_id: 0, requester: '', problemdetails: '', phone: '', email: '', resolved: false, resolvedby: '',
     resnotes: '', isfavorite: false,
@@ -28,6 +29,10 @@ export class TicketDetailComponent implements OnInit {
   }
   showLess() {
     this.showMore = false;
+  }
+  addFav(ticket: Ticket) {
+    ticket.isfavorite = true;
+    this.TicketSrv.update(()=>{this.refresh()},ticket)
   }
 
 
@@ -65,14 +70,13 @@ export class TicketDetailComponent implements OnInit {
       this.editMode = false;
   }
   
-  addToFavorites() {
-    /* this.FavList.push(addFav: Favorites {
-      favorite_id: 0,
-      ticketid: this.ticket.ticket_id,
-      personid: this.ticket.requester;
-    }) */
+  TicketList: Ticket[] = [];
+  
+  refresh(){
+		this.TicketSrv.getAll((result:Ticket[])=>{this.TicketList= result});
 	}
 
   ngOnInit(): void {
+    this.refresh();
   }
 }
