@@ -44,16 +44,22 @@
                 </div>
             </ng-container>
 
+            <ng-container *ngIf="showMore">
+                <div class="rows">
+                    <b>Favorite:</b>  {{ ticket.isfavorite}}
+                </div>
+            </ng-container>
+
             <!-- <div>
             <ng-container *ngIf="showMore">
                 <Button (click)="addToFavorites()">Add To Favorites</Button>
             </ng-container>
             </div> -->
     
+            <ng-container *ngIf="showMore"><button (click)="showLess()">Show Less</button></ng-container>
     <ng-container *ngIf="showMore"><button (click)="turnOnEdit()">Edit</button></ng-container>
-    <ng-container *ngIf="showMore"><button (click)="deleteMe()">Delete</button></ng-container>
     <ng-container *ngIf="!showMore"><button (click)="details()">Details</button></ng-container>
-    <ng-container *ngIf="showMore"><button (click)="showLess()">Show Less</button></ng-container>
+    <ng-container *ngIf="showMore"><button (click)="deleteMe()">Delete</button></ng-container>
 
     <Button (click)="addFav(this.ticket)">Add To Favorites</Button>
 </div>
